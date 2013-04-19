@@ -786,5 +786,8 @@ var Zepto = (function() {
 })()
 
 // If `$` is not yet defined, point it to `Zepto`
-window.Zepto = Zepto
-'$' in window || (window.$ = Zepto)
+if(typeof module === "undefined") {
+  self.Zepto = Zepto
+  '$' in self || (self.$ = Zepto)  
+} else
+  module.exports = Zepto
